@@ -27,7 +27,7 @@ namespace StringsProcessor.Application.UnitTests.Filters
 
             var enumerableFactorySub = Substitute.For<IElementsEnumerableFactory>();
 
-            var filter = new LineProcessingFilter(enumerableFactorySub);
+            var filter = new RawLineProcessingFilter(enumerableFactorySub);
 
             await filter.Send(context, new EmptyPipe<LineProcessingContext>());
 
@@ -52,7 +52,7 @@ namespace StringsProcessor.Application.UnitTests.Filters
                 LineIndex = 10
             };
 
-            var filter = new LineProcessingFilter(enumerableFactorySub);
+            var filter = new RawLineProcessingFilter(enumerableFactorySub);
 
             await filter.Send(context, new EmptyPipe<LineProcessingContext>());
 

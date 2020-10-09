@@ -50,7 +50,7 @@ namespace StringsProcessor.Application.UnitTests.Filters
         }
 
         [Test]
-        public async Task ProcessLinesConcurrentFilter_Call_Pipe_With_Correct_Args()
+        public async Task TextLinesParallelProcessingFilter_Call_Pipe_With_Correct_Args()
         {
             var context = new TextProcessingContext
             {
@@ -62,7 +62,7 @@ namespace StringsProcessor.Application.UnitTests.Filters
                 Assert.AreEqual(context.RawLines.First(), processingContext.ProcessedLine);
             });
 
-            var filter = new ProcessLinesConcurrentFilter(pipeSub, new ConcurrencySettings
+            var filter = new TextLinesParallelProcessingFilter(pipeSub, new ConcurrencySettings
             {
                 DegreeOfParallelism = 1
             });

@@ -18,7 +18,7 @@ namespace StringsProcessor.Application.PipeBuilders.LineProcessing
         {
             return Pipe.New<LineProcessingContext>(configurator =>
             {
-                configurator.UseFilter(new LineProcessingFilter(_elementsEnumerableFactory));
+                configurator.UseFilter(new RawLineProcessingFilter(_elementsEnumerableFactory));
             });
         }
     }

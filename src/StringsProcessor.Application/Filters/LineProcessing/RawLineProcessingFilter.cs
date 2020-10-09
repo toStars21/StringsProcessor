@@ -7,11 +7,11 @@ using StringsProcessor.Application.Iterator;
 
 namespace StringsProcessor.Application.Filters.LineProcessing
 {
-    internal class LineProcessingFilter : IFilter<LineProcessingContext>
+    internal class RawLineProcessingFilter : IFilter<LineProcessingContext>
     {
         private readonly IElementsEnumerableFactory _enumerableFactory;
 
-        public LineProcessingFilter(IElementsEnumerableFactory enumerableFactory)
+        public RawLineProcessingFilter(IElementsEnumerableFactory enumerableFactory)
         {
             _enumerableFactory = enumerableFactory;
         }

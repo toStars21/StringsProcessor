@@ -1,6 +1,7 @@
 ﻿using GreenPipes;
 using Microsoft.Extensions.Options;
 using StringsProcessor.Application.Contexts;
+using StringsProcessor.Application.Filters.Exceptions;
 using StringsProcessor.Application.Filters.TextProcessing;
 using StringsProcessor.Application.Input;
 using StringsProcessor.Application.PipeBuilders.LineProcessing;
@@ -25,9 +26,10 @@ namespace StringsProcessor.Application.PipeBuilders.TextProcessing
         {
             return Pipe.New<TextProcessingContext>(configurator =>
             {
+                configurator.UseFilter(new ExceptionLoggingFilter<TextProcessingContext>());
                 configurator.UseFilter(new ExtractTextFilter(_input));
                 configurator.UseFilter(new SplitByLinesFilter());
-                configurator.UseFilter(new ProcessLinesConcurrentFilter(_lineProcessingPipeBuilder.Build(), _settings));
+                configurator.UseFilter(new TextLinesParallelProcessingFilter(_lineProcessingPipeBuilder.Build(), _settings));
             });
         }
     }
