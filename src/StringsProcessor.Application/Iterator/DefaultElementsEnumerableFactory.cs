@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using StringsProcessor.Application.Domain;
 
-namespace StringsProcessor.Application.Iterator.Default
+namespace StringsProcessor.Application.Iterator
 {
     internal class DefaultElementsEnumerableFactory : IElementsEnumerableFactory
     {

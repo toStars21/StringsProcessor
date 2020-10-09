@@ -7,13 +7,13 @@ using StringsProcessor.Application.Settings;
 
 namespace StringsProcessor.Application.Filters.TextProcessing
 {
-    internal class ProcessLineConcurrentFilter : IFilter<TextProcessingContext>
+    internal class ProcessLinesConcurrentFilter : IFilter<TextProcessingContext>
     {
         private readonly IPipe<LineProcessingContext> _lineProcessingPipe;
         private readonly ActionBlock<LineProcessingContext> _processLine;
         private readonly ConcurrencySettings _settings;
 
-        public ProcessLineConcurrentFilter(IPipe<LineProcessingContext> lineProcessingPipe, ConcurrencySettings settings)
+        public ProcessLinesConcurrentFilter(IPipe<LineProcessingContext> lineProcessingPipe, ConcurrencySettings settings)
         {
             _lineProcessingPipe = lineProcessingPipe;
             _settings = settings;
@@ -35,7 +35,7 @@ namespace StringsProcessor.Application.Filters.TextProcessing
                 lineProcessingContexts.Add(
                     new LineProcessingContext
                     {
-                        RawLines = context.RawLines[lineIndex],
+                        RawLine = context.RawLines[lineIndex],
                         LineIndex = lineIndex
                     });
             }

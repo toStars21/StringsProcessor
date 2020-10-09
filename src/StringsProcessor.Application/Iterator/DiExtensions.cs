@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using StringsProcessor.Application.Iterator.Default;
 
 namespace StringsProcessor.Application.Iterator
 {

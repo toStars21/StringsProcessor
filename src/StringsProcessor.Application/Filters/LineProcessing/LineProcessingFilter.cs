@@ -18,7 +18,7 @@ namespace StringsProcessor.Application.Filters.LineProcessing
 
         public async Task Send(LineProcessingContext context, IPipe<LineProcessingContext> next)
         {
-            var elements = _enumerableFactory.Create(context.RawLines);
+            var elements = _enumerableFactory.Create(context.RawLine);
 
             context.ProcessedLine = new Line(context.LineIndex, elements.ToList());
 

@@ -27,7 +27,7 @@ namespace StringsProcessor.Application.PipeBuilders.TextProcessing
             {
                 configurator.UseFilter(new ExtractTextFilter(_input));
                 configurator.UseFilter(new SplitByLinesFilter());
-                configurator.UseFilter(new ProcessLineConcurrentFilter(_lineProcessingPipeBuilder.Build(), _settings));
+                configurator.UseFilter(new ProcessLinesConcurrentFilter(_lineProcessingPipeBuilder.Build(), _settings));
             });
         }
     }
